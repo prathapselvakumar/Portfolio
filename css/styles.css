@@ -59,10 +59,7 @@
  *      ## testimonials
  *      ## testimonial slider 
  * # CONTACT
- * # FOOTER
- *      ## copyright
- *      ## go top
- *
+ * 
  * ------------------------------------------------------------------ */
 
 
@@ -4119,56 +4116,7 @@ img.u-pull-left {
 
 
 
-/* ===================================================================
- * # FOOTER
- *
- *
- * ------------------------------------------------------------------- */
 
-.s-footer {
-    margin-top     : auto;
-    padding-top    : var(--vspace-1);
-    padding-bottom : var(--vspace-3);
-    color          : var(--color-text-light);
-}
-
-.s-footer>.row {
-    position : relative;
-}
-
-.s-footer a {
-    color : var(--color-text);
-}
-
-.s-footer a:focus,
-.s-footer a:hover {
-    color : white;
-}
-
-/* ------------------------------------------------------------------- 
- * ## copyright
- * ------------------------------------------------------------------- */
-.ss-copyright {
-    margin-top   : calc(var(--vspace-0_25) * -1);
-    margin-right : 5.2rem;
-    line-height  : var(--vspace-0_875);
-}
-
-.ss-copyright span {
-    font-size : var(--text-sm);
-    display   : inline-block;
-}
-
-.ss-copyright span::after {
-    content : "|";
-    display : inline-block;
-    padding : 0 .8rem 0 1rem;
-    color   : rgba(255, 255, 255, 0.1);
-}
-
-.ss-copyright span:last-child::after {
-    display : none;
-}
 
 /* ------------------------------------------------------------------- 
  * ## go top
