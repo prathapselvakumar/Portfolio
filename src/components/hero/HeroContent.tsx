@@ -1,0 +1,47 @@
+
+import { RefObject } from 'react';
+import GreetingRotator from './GreetingRotator';
+
+interface HeroContentProps {
+  contentRef: RefObject<HTMLDivElement>;
+}
+
+export default function HeroContent({ contentRef }: HeroContentProps) {
+  return (
+    <div ref={contentRef} className="w-full md:w-3/5 text-center md:text-left order-1 md:order-2 transition-transform duration-300">
+      <div className="space-y-5 max-w-lg mx-auto md:mx-0">
+        {/* Multi-language greeting on its own line */}
+        <GreetingRotator />
+        
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold animate-text-reveal">
+          I'm <span className="highlight-text">Prathap Selva Kumar</span>
+        </h1>
+        
+        <h2 className="text-xl md:text-2xl font-medium text-muted-foreground animate-text-reveal" style={{ animationDelay: "150ms" }}>
+          AI Enthusiast | Software Engineer
+        </h2>
+        
+        <p className="text-lg text-foreground/80 animate-text-reveal" style={{ animationDelay: "300ms" }}>
+          Pioneering intelligent systems that bridge the gap between hardware and software.
+        </p>
+        
+        <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start stagger-fade-in">
+          <a 
+            href="#about" 
+            className="btn-primary group relative overflow-hidden tilt-card"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/40 to-primary/0 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-full transition-all duration-1000"></span>
+            Discover More
+          </a>
+          <a 
+            href="#contact" 
+            className="btn-secondary group relative overflow-hidden tilt-card"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-secondary/0 via-secondary/40 to-secondary/0 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-full transition-all duration-1000"></span>
+            Get In Touch
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
