@@ -22,14 +22,14 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Python Automation Tools",
+    title: "Python",
     description: "Created Python scripts for automation and data processing during internship at C-Square Info Solutions.",
     type: "Internship Project",
     technologies: ["Python", "SQL", "API Integration"],
   },
   {
     id: 3,
-    title: "Deep Learning for Big Data",
+    title: "Big Data Analatics Using Deep Learning",
     description: "Applied deep learning techniques to analyze large datasets at National University of Singapore.",
     type: "Research Internship",
     technologies: ["Python", "TensorFlow", "Deep Learning"],
@@ -44,6 +44,11 @@ const projects: Project[] = [
 ];
 
 const certifications = [
+  {
+    title: "Big Data Analatics Using Deep Learning",
+    issuer: "National University of Singapore",
+    date: "2023",
+  },
   {
     title: "AWS Certified – SageMaker",
     issuer: "Amazon Web Services",

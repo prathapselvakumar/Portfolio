@@ -25,30 +25,6 @@ const experiences: ExperienceItem[] = [
     technologies: ["React.js", "JavaScript", "HTML/CSS", "Git"],
   },
   {
-    id: "csq-intern",
-    title: "Python Developer Intern",
-    company: "C-Square Info Solutions",
-    period: "SEP-2023 TO NOV-2023",
-    description: [
-      "Developed Python scripts for automation and data processing",
-      "Worked on internal tools to improve team productivity",
-      "Gained experience with database operations and API integration"
-    ],
-    technologies: ["Python", "SQL","Data Processing", "MongoDB"],
-  },
-  {
-    id: "NUS Acadamic-Intern",
-    title: "Big Data Analytics using Deep Learning - Acadamic Internship ",
-    company: "National University of Singapore",
-    period: "DEC-2023 to JAN-2025",
-    description: [
-      "Applied deep learning techniques to analyze large datasets",
-      "Worked on research projects involving pattern recognition in data",
-      "Collaborated with academic researchers on cutting-edge deep learning approaches"
-    ],
-    technologies: ["Python", "TensorFlow", "Deep Learning", "Big Data Analytics"],
-  },
-  {
     id: "qentelli-intern",
     title: "AI/ML Project Intern",
     company: "Qentelli Solutions",
@@ -60,6 +36,32 @@ const experiences: ExperienceItem[] = [
     ],
     technologies: ["Python", "Machine Learning", "Predictive Analytics", "Data Science"],
   },
+  {
+    id: "NUS Academic -Intern",
+    title: "Big Data Analytics using Deep Learning - Academic Internship ",
+    company: "National University of Singapore",
+    period: "DEC-2023 to JAN-2025",
+    description: [
+      "Applied deep learning techniques to analyze large datasets",
+      "Worked on research projects involving pattern recognition in data",
+      "Collaborated with academic researchers on cutting-edge deep learning approaches"
+    ],
+    technologies: ["Python", "TensorFlow", "Deep Learning", "Big Data Analytics"],
+  },
+  {
+    id: "csq-intern",
+    title: "Python Developer Intern",
+    company: "C-Square Info Solutions",
+    period: "SEP-2023 TO NOV-2023",
+    description: [
+      "Developed Python scripts for automation and data processing",
+      "Worked on internal tools to improve team productivity",
+      "Gained experience with database operations and API integration"
+    ],
+    technologies: ["Python", "SQL","Data Processing", "MongoDB"],
+  },
+  
+  
 ];
 
 export default function ExperienceSection() {

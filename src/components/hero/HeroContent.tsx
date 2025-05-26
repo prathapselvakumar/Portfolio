@@ -34,11 +34,13 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
             Discover More
           </a>
           <a 
-            href="#contact" 
+            href="https://www.linkedin.com/in/prathapselvakumar/"  
             className="btn-secondary group relative overflow-hidden tilt-card"
+             target="_blank" 
+              
           >
             <span className="absolute inset-0 bg-gradient-to-r from-secondary/0 via-secondary/40 to-secondary/0 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-full transition-all duration-1000"></span>
-            Get In Touch
+            Linkedin 
           </a>
         </div>
       </div>
