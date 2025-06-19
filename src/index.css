@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 201 100% 36%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 72% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 201 80% 46%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins font-bold;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+}
+
+@layer components {
+  .highlight-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent relative;
+    text-shadow: 0 0 15px rgba(var(--primary), 0.5);
+  }
+  
+  .card-hover {
+    @apply transition-all duration-500 hover:shadow-lg hover:-translate-y-2 hover:shadow-primary/5;
+  }
+  
+  .tech-card {
+    @apply rounded-xl border border-border bg-card p-6 shadow-sm relative overflow-hidden;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center whitespace-nowrap rounded-md px-6 py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 inline-flex items-center justify-center whitespace-nowrap rounded-md px-6 py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-lg shadow-secondary/10 hover:shadow-xl hover:shadow-secondary/20;
+  }
+  
+  .animated-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100;
+  }
+  
+  .circuit-bg {
+    @apply bg-gradient-to-b from-background to-background/50 dark:from-background dark:to-background/50;
+    background-image: radial-gradient(circle, rgba(var(--primary), 0.1) 1px, transparent 1px), url('/circuit-pattern.svg');
+    background-size: 40px 40px, 60px 60px;
+    background-position: 0 0, 30px 30px;
+  }
+  
+  .glitch-text {
+    position: relative;
+  }
+  
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .glitch-text::before {
+    left: 2px;
+    text-shadow: -1px 0 rgba(var(--accent), 0.7);
+    animation: glitch-animation 3s infinite linear alternate-reverse;
+  }
+  
+  .glitch-text::after {
+    left: -2px;
+    text-shadow: 1px 0 rgba(var(--primary), 0.7);
+    animation: glitch-animation 2s infinite linear alternate-reverse;
+  }
+  
+  .bg-grid-pattern {
+    background-image: linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* New parallax classes */
+  .parallax {
+    @apply will-change-transform;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .parallax-layer {
+    @apply absolute w-full h-full transition-transform duration-700;
+    transform: translateZ(0);
+  }
+  
+  .parallax-deep {
+    transform: translateZ(-100px) scale(1.15);
+  }
+  
+  .parallax-medium {
+    transform: translateZ(-50px) scale(1.08);
+  }
+  
+  .parallax-shallow {
+    transform: translateZ(-25px) scale(1.04);
+  }
+  
+  .transition-transform-gpu {
+    @apply transition-transform duration-500;
+    transform: translateZ(0);
+  }
+  
+  .stagger-fade-in > * {
+    @apply opacity-0;
+    animation: fade-in 0.5s ease-out forwards;
+  }
+  
+  .stagger-fade-in > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-fade-in > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-fade-in > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-fade-in > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-fade-in > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-fade-in > *:nth-child(6) { animation-delay: 0.6s; }
+  
+  .hover-3d {
+    @apply transition-all duration-300 will-change-transform;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .tilt-card {
+    @apply transition-transform duration-300 will-change-transform;
+    transform: perspective(1000px) rotateX(0) rotateY(0);
+    transform-style: preserve-3d;
+  }
+}
+
+.glass-effect {
+  @apply backdrop-blur-lg bg-white/10 dark:bg-black/20 border border-white/20 dark:border-white/10;
+}
+
+@keyframes glitch-animation {
+  0% {
+    clip-path: inset(80% 0 0 0);
+  }
+  
+  5% {
+    clip-path: inset(10% 0 85% 0);
+  }
+  
+  10% {
+    clip-path: inset(50% 0 35% 0);
+  }
+  
+  15% {
+    clip-path: inset(25% 0 65% 0);
+  }
+  
+  20% {
+    clip-path: inset(75% 0 5% 0);
+  }
+  
+  25% {
+    clip-path: inset(15% 0 75% 0);
+  }
+  
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(10px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0 0;
+  }
+  
+  100% {
+    background-position: 60px 60px;
+  }
+}
+
+/* New animation keyframes */
+@keyframes float-vertical {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes rotate-3d {
+  0% { transform: perspective(1000px) rotateY(0deg); }
+  100% { transform: perspective(1000px) rotateY(360deg); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-10px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(10px); }
+}
+
+/* Loading screen specific animations */
+@keyframes loading-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-loading-fade-in {
+  animation: loading-fade-in 0.6s ease-out forwards;
+}
+
+/* Faster, more elegant animations for loading */
+@keyframes slow-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-slow-fade-in {
+  animation: slow-fade-in 1s ease-out forwards;
+}
