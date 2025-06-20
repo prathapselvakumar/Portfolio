@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -219,7 +218,7 @@ export default function ProjectsSection() {
           ))}
         </div>
         
-        {/* Certifications with enhanced animations */}
+        {/* Certifications with side-by-side layout */}
         <div>
           <h3 className={cn(
             "text-2xl font-bold mb-6 text-center",
@@ -227,13 +226,13 @@ export default function ProjectsSection() {
           )} style={{ animationDelay: "300ms" }}>
             Certifications
           </h3>
-          <div className="max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {certifications.map((cert, index) => (
               <Card 
                 key={index}
                 ref={el => certCardRefs.current[index] = el}
                 className={cn(
-                  "mb-4 tech-card card-hover border-l-4 border-l-accent group tilt-card",
+                  "tech-card card-hover border-l-4 border-l-accent group tilt-card",
                   isVisible ? "animate-fade-in" : "opacity-0"
                 )}
                 style={{ 
@@ -254,7 +253,7 @@ export default function ProjectsSection() {
                 <div className="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/10 to-accent/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 
                 <CardHeader className="relative z-10">
-                  <CardTitle className="transition-transform duration-300 group-hover:-translate-y-1">{cert.title}</CardTitle>
+                  <CardTitle className="transition-transform duration-300 group-hover:-translate-y-1 text-lg">{cert.title}</CardTitle>
                   <CardDescription className="transition-all duration-300 group-hover:text-accent">{cert.issuer} • {cert.date}</CardDescription>
                 </CardHeader>
               </Card>
