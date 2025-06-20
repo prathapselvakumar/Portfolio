@@ -35,6 +35,28 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const [showFinalGreeting, setShowFinalGreeting] = useState(false);
   const [progress, setProgress] = useState(0);
 
+  // Apply theme on loading screen
+  useEffect(() => {
+    const applyTheme = () => {
+      const storedTheme = localStorage.getItem("theme") || "system";
+      
+      if (storedTheme === "system") {
+        const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (systemPrefersDark) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      } else if (storedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    };
+
+    applyTheme();
+  }, []);
+
   useEffect(() => {
     // Faster progress animation - complete in 5 seconds
     const progressInterval = setInterval(() => {

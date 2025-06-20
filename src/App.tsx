@@ -14,16 +14,34 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
 
-  // Ensure light theme is set by default on app load
+  // Initialize theme system on app load
   useEffect(() => {
-    // Force light theme as default
-    const currentTheme = localStorage.getItem("theme");
-    if (!currentTheme) {
-      localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-    } else if (currentTheme === "light") {
-      document.documentElement.classList.remove("dark");
-    }
+    const initializeTheme = () => {
+      const storedTheme = localStorage.getItem("theme");
+      
+      if (!storedTheme) {
+        // Default to system theme
+        localStorage.setItem("theme", "system");
+      }
+      
+      // Apply the theme immediately
+      const themeToApply = storedTheme || "system";
+      
+      if (themeToApply === "system") {
+        const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (systemPrefersDark) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      } else if (themeToApply === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    };
+
+    initializeTheme();
   }, []);
 
   // Reduced minimum loading time for better UX (now 5 seconds total)
